@@ -60,6 +60,17 @@ body {
    position: relative;
 }
 
+.pot {
+  position: absolute;
+  width: calc( var(--grid-cell)* 1.5 );
+  height: calc( var(--grid-cell)* 1.5 );
+  left: 64px;
+  top: 48px;
+  background: url("Assets/Pot.png") no-repeat no-repeat;
+  background-size: 100%;
+  z-index: 1;
+}
+
 .character {
    width: calc( var(--grid-cell)* 2 );
    height: calc( var(--grid-cell)* 2 );
