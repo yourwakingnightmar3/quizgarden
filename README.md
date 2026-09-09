@@ -1,4 +1,4 @@
-# Untitled
+# QuizGarden
 
 A Pen created on CodePen.
 
