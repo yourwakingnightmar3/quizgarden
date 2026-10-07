@@ -4,10 +4,18 @@
   <head>
     <meta charset="UTF-8">
     <title>QuizGarden</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"><link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="style.css">
   </head>
 
   <body>
+<main>
+<section class="panel">
+<h1>QuizGarden</h1>
+<label for="notes">Paste your study notes</label>
+<textarea id="notes" placeholder="Paste a few paragraphs from your notes or textbook."></textarea>
+<div class="row"><button id="gen">Make my questions</button><button id="demo">Try sample notes</button></div>
+<p id="status" role="status" aria-live="polite">Paste notes, or try the sample notes to start.</p>
+</section>
     <div class="frame">
    <div class="corner_topleft"></div>
    <div class="corner_topright"></div>
@@ -24,7 +32,7 @@
             <div class="character_spritesheet pixel-art"></div>
          </div>
 
-         <div class="pot"></div>
+         
       </div>
 
 
@@ -84,7 +92,14 @@
       
    </div>
 </div>
-    <script src="script.js"></script>
+    <section class="panel" id="qpanel">
+<div class="hud"><span id="round"></span><span id="score"></span></div>
+<ol id="qs"></ol>
+<button id="next" hidden>Next round</button>
+<p class="help">Walk into a plant to pick it up, then walk into the pot whose question it answers. A wrong pot just sends the plant back.</p>
+</section>
+</main>
+<script src="game.js"></script>
   </body>
 
 </html>
