@@ -1,6 +1,6 @@
 // ---- Settings ----
 // Paste your Cloudflare Worker URL here (see worker.js). Leave empty to use sample questions only.
-const API_URL = "";
+const API_URL = "https://quiz-generator.akiraevanson.workers.dev/";
 
 const SAMPLE = [
   {q:"Which pigment captures light energy in plants?",a:"Chlorophyll"},
@@ -83,7 +83,7 @@ function checkHits(){
   }
 }
 
-// ---- Movement (your original loop, plus game checks) ----
+// ---- Movement (loop, plus game checks) ----
 const directions={up:"up",down:"down",left:"left",right:"right"};
 const keys={ArrowUp:"up",w:"up",ArrowLeft:"left",a:"left",ArrowRight:"right",d:"right",ArrowDown:"down",s:"down"};
 
