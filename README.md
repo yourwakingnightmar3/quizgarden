@@ -2,7 +2,7 @@
 
 Developed with VScode and Claude AI.
 
-An All-In-One study companion that groups all your favourite apps and necessities into one, simple to use website.
+An All-In-One study companion that groups all your favourite apps and necessities into one, simple to use website with a gardening theme.
 
 Features:
 - A fun interactive game that quizzes you based on your notes and study material
