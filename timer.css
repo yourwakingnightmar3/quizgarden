@@ -15,7 +15,7 @@ main{position:relative;z-index:1;max-width:1080px;margin:0 auto;padding:18px 16p
 .home{display:inline-block;padding:6px 12px;background:var(--panel);border:3px solid var(--edge);color:var(--ink);text-decoration:none;font-weight:700;box-shadow:3px 3px 0 var(--edge-d)}
 .home:hover{background:var(--leaf);color:#07140d;border-color:var(--leaf)}
 h1{margin:18px 0 4px;font-size:clamp(2.1rem,6vw,3.5rem);line-height:1.05;color:#eaffef;text-shadow:3px 3px 0 var(--leaf-d),6px 6px 0 var(--edge-d)}
-.lede{margin:10px 0 22px;color:var(--mute);max-width:80ch}
+.lede{margin:10px 0 22px;color:var(--mute);max-width:60ch}
 h2{margin:0;font-size:1.5rem}
 
 .grid{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:22px;align-items:start}
@@ -42,6 +42,7 @@ button:disabled{opacity:.42;cursor:not-allowed}
 .face{fill:#0b1d14;stroke:var(--edge);stroke-width:4}
 .track{fill:none;stroke:#1a3828;stroke-width:24}
 .arc{fill:none;stroke:var(--acc);stroke-width:24;stroke-linecap:butt}
+.arc.sweep{transition:stroke-dasharray .6s ease-out}
 #ticks line{stroke:#3d7556;stroke-width:2}
 #ticks line.maj{stroke:#86c09b;stroke-width:3}
 #handle{cursor:grab;outline:none}
@@ -120,4 +121,4 @@ input[type="text"]::placeholder{color:#6f947f}
 
 @media (max-width:880px){.grid{grid-template-columns:minmax(0,1fr)}}
 @media (max-width:480px){.card{padding:14px}.controls button{padding:10px 14px}}
-@media (prefers-reduced-motion:reduce){.plant{animation:none}.fx{display:none}}
+@media (prefers-reduced-motion:reduce){.plant{animation:none}.fx{display:none}.arc.sweep{transition:none}}

@@ -172,16 +172,25 @@ function celebrate() {
 }
 
 // ---------- Timer logic ----------
+// Short animation so the ring smoothly fills out to a full circle when a session starts
+let sweepT = 0;
+function sweep() {
+  if (reduce) return;
+  arc.classList.add("sweep");
+  clearTimeout(sweepT);
+  sweepT = setTimeout(() => arc.classList.remove("sweep"), 700);
+}
 function setPhase(ph) { S.phase = ph; S.status = "idle"; S.remaining = total(); }
 function start() {
   ensureAudio();
-  if (S.status === "idle") { S.remaining = total(); if (S.phase === "focus") S.grown = false; }
+  if (S.status === "idle") { S.remaining = total(); if (S.phase === "focus") S.grown = false; sweep(); }
   S.endAt = Date.now() + S.remaining; S.status = "running"; note = ""; render();
 }
 function pause() { S.remaining = Math.max(0, S.endAt - Date.now()); S.status = "paused"; note = ""; render(); }
-function reset() { setPhase(S.phase); if (S.phase === "focus") S.grown = false; note = ""; render(); }
+function reset() { sweep(); setPhase(S.phase); if (S.phase === "focus") S.grown = false; note = ""; render(); }
 
 function advance(completed) {
+  sweep();
   if (S.phase === "focus") {
     if (completed) { S.grown = true; addPlant(); celebrate(); note = "Bloom! Your plant is in your collection. Time to rest."; }
     else { S.grown = false; note = "Skipped. No plant this time, and that's okay."; }
@@ -338,7 +347,9 @@ function render() {
 
   const ms = idle ? total() : S.remaining;
   setText(timeEl, fmt(ms)); setText(phaseEl, lim.label);
-  const frac = clamp(ms / 60000 / lim.max, 0, 1);
+  // Setting the length: the ring is the dial (a full lap = the maximum for this tab).
+  // Running or paused: the ring is the chosen length, so it starts as a full circle and empties.
+  const frac = idle ? clamp(cfg[ph] / lim.max, 0, 1) : clamp(S.remaining / total(), 0, 1);
   arc.setAttribute("stroke-dasharray", (frac * 100).toFixed(2) + " 100");
   const a = frac * 2 * Math.PI;
   handle.setAttribute("transform", "translate(" + (CX + R * Math.sin(a)).toFixed(2) + " " + (CY - R * Math.cos(a)).toFixed(2) + ")");
