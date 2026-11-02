@@ -1,6 +1,6 @@
 # QuizGarden
 
-Developed with VScode and Claude AI.
+Developed with VScode and Gemini AI.
 
 An All-In-One study companion that groups all your favourite apps and necessities into one, simple to use website with a gardening theme.
 
